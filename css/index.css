@@ -1,0 +1,47 @@
+  /* 先删除默认的内外边距 */
+  * {
+      margin: 0;
+      padding: 0;
+  }
+  body{
+      background-color: #fafafa;
+  }
+  li{
+     list-style: none;
+  }
+  /* 顶部导航栏开始了 */
+  .header{
+      height: 100px;
+      background-color: #fff;
+  }
+  .inner{
+      width: 1200px;
+      height: 100px;
+      background-color: tomato;
+      margin: auto;
+      line-height: 100px;
+  }
+  .logo{
+      width: 400px;
+      height: 100px;
+      background-image: url();
+      float: left;
+  }
+  .nav{
+      width: 790px;
+      height: 100px;
+      background-color: red;
+      float: right;
+  }
+  .nav li {
+      float: right;
+      margin: 0 20px;
+      
+  }
+  .nav li a {
+      color: #333333;
+      text-decoration:none;
+  }
+  .nav li a:hover{
+      color: #2288f6;
+  }

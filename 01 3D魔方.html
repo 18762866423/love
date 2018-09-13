@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D魔方</title>
+    <embed src="" type="">
+
+    <style>
+        
+        body{
+            /* 设置外边距为零 */
+            margin: 0;
+            background-image: url(imagns/bg.jpg);
+            /* 设置背景图片是否平铺 */
+            background-repeat: no-repeat;
+            background-size:100%  100%;
+            /* 设置高度，因body没有高度图片没法显示 */
+            height: 100vh;
+            /* 开启弹性布局，处理子元素的排布方式 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 视角与3D元素的距离 */
+            perspective: 1000px;
+            /* 改变视角位置 默认值50% 50% */
+            perspective-origin: 50% 50%;
+
+        }
+        /* 注意：下边的这部分是外边的透明度面 */
+        main>div{
+            width: 100%;
+            height: 100%;
+            /* 设置绝对关系，可以让标签以层级显示 */
+            position: absolute; 
+            transition-duration: 0.5s;
+        }
+        .qian{
+            background-color: rgba(30, 18, 199, 0.3);
+            /* 3D图形转换 */
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .hou{
+            background-color: rgba(187, 42, 74, 0.3);
+            /* 3D图形转换 */
+            transform: translateZ(100px);
+        }
+        .shang{
+            background-color: rgba(230, 222, 17, 0.3);
+            transform: rotateX(90deg) translateZ(100px);
+            
+        }
+        .xia{
+            background-color: rgba( 255,0,255,0.3);
+            transform: rotateX(270deg) translateZ(100px);
+        }
+        .zuo{
+            background-color: rgba(206, 18, 18, 0.3);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .you{
+            background-color: rgba( 0,255,255,0.3);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        main:hover .hou{
+            transform: translateZ(300px);
+        }
+        main:hover .qian{
+            transform: rotateY(180deg) translateZ(300px);
+        }
+        main:hover .shang {
+            transform: rotateX(90deg) translateZ(300px);
+        }
+        main:hover .xia {
+            transform: rotateX(270deg) translateZ(300px);
+        }
+        main:hover .zuo{
+            transform: rotateY(-90deg) translateZ(300px);
+        }
+        main:hover .you{
+            transform: rotateY(90deg) translateZ(300px);
+        }
+
+        /* 注意：下面的内容是里边的魔方部分 */
+        section{
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            transform-style: preserve-3d;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+       
+        }
+        section>div{
+            width: 100%;
+            height: 100%;
+            /* 设置绝对关系，可以让标签以层级显示 */
+            position: absolute; 
+            /* transition-duration: 0.5s; */
+            
+        }
+        section .qian1{
+            background-color: rgba(30, 18, 199, 1);
+            /* 3D图形转换 */
+            transform: rotateY(180deg) translateZ(50px);
+        }
+        section .hou2{
+            background-color: rgba(187, 42, 74, 1);
+            /* 3D图形转换 */
+            transform: translateZ(50px);
+        }
+        section .xia5{
+            background-color: rgba( 255,0,255,1);
+            transform: rotateX(270deg) translateZ(50px);
+        }
+        section .zuo3{
+            background-color: rgba(206, 18, 18, 1);
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+        section .you4{
+            background-color: rgba( 0,255,255,1);
+            transform: rotateY(90deg) translateZ(50px);
+        }
+        section .shang6{
+            background-image: url(../images/fc.png);
+            transform: rotateX(90deg) translateZ(50px);
+            background-size: 100px;
+        }
+        
+        main{
+            width: 200px;
+            height: 200px;
+            background-color: transparent;
+            /* 保留内部子元素的3D转换效果 */
+            transform-style: preserve-3d;
+            animation-name: zhuan;
+            animation-duration: 15s;
+            animation-iteration-count: infinite; 
+        }
+        @keyframes zhuan{
+            0%{
+                transform:rotateX(0) rotateY(0) rotateZ(0);
+            }
+            100%{
+                transform:rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--main: 立方体的容器标签，容器面所在的位置是每个面得初始位置 -->
+    <main>
+        <!-- <div class="qian"></div>
+        <div class="hou"></div>
+        <div class="shang"></div>
+        <div class="xia"></div>
+        <div class="zuo"></div>
+        <div class="you"></div> -->
+        <section>
+            <div class="qian1"></div>
+            <div class="hou2"></div>
+            <div class="zuo3"></div>
+            <div class="you4"></div>
+            <div class="xia5"></div>
+            <div class="shang6"></div>
+        </section>
+    </main>
+</body>
+</html>
